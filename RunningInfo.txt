@@ -3,7 +3,7 @@
 
 Number of Max Threads = 10
 Number of Running Threads = 0
-Number of Remaining Threads = 0
+Number of Remaining Threads = 1
 Number of Successfully Finished Threads = 0
 
 Active Threads = [Thread[50_100_0.9_0.005_UniformCrossoverBinary_SwapMutationBinary,5,main]]

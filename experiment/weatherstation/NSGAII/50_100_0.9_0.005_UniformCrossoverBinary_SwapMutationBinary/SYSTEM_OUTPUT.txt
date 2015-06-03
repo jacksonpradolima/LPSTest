@@ -21,6 +21,6 @@ Nome do arquivo: instances/weatherstation/PROD_
 Número de casos de teste (produtos): 504
 Número de características: 22
 Run: 0
-Total time of execution: 2496
+Total time of execution: 5141
 Objectives values have been writen to file experiment/weatherstation/NSGAII/50_100_0.9_0.005_UniformCrossoverBinary_SwapMutationBinary/FUN_0
 Variables values have been writen to file experiment/weatherstation/NSGAII/50_100_0.9_0.005_UniformCrossoverBinary_SwapMutationBinary/VAR_0
