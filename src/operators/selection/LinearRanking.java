@@ -17,7 +17,7 @@ import jmetal.util.comparators.ObjectiveComparator;
 
 /**
  *
- * @author thaina
+ * @author Prado Lima
  */
 public class LinearRanking extends Selection {
 

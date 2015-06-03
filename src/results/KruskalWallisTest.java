@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author giovani
+ * @author Prado Lima
  */
 public class KruskalWallisTest {
 

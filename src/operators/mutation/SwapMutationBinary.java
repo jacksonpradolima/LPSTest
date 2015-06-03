@@ -19,7 +19,7 @@ import jmetal.util.PseudoRandom;
 
 /**
  *
- * @author thaina
+ * @author Prado Lima
  */
 public class SwapMutationBinary extends Mutation {
 

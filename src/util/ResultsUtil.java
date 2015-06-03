@@ -26,7 +26,7 @@ import results.KruskalWallisTest;
 
 /**
  *
- * @author thaina
+ * @author Prado Lima
  */
 public class ResultsUtil {
 

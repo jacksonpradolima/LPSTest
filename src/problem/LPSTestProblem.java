@@ -15,7 +15,7 @@ import util.InstanceReader;
 
 /**
  *
- * @author thaina
+ * @author Prado Lima
  *
  */
 /**

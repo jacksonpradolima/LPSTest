@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author thaina
+ * @author Prado Lima
  */
 public class ExecutionTime {
 

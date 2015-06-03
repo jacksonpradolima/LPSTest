@@ -15,7 +15,7 @@ import util.ResultsUtil;
 
 /**
  *
- * @author thaina
+ * @author Prado Lima
  */
 public class MonoObjectiveResults {
 

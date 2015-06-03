@@ -13,7 +13,7 @@ import jmetal.util.PseudoRandom;
 
 /**
  *
- * @author thaina
+ * @author Prado Lima
  */
 public class RouletteWheel extends Selection {
 

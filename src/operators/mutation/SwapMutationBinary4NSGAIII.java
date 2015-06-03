@@ -20,7 +20,7 @@ import org.uma.jmetal.util.binarySet.BinarySet;
 
 /**
  *
- * @author thaina
+ * @author Prado Lima
  */
 public class SwapMutationBinary4NSGAIII implements MutationOperator<BinarySolution> {
 

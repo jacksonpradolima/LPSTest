@@ -29,7 +29,7 @@ import org.uma.jmetal.util.fileoutput.impl.DefaultFileOutputContext;
 
 /**
  *
- * @author thaina
+ * @author Prado Lima
  */
 public class ExperimentUtil {
 
