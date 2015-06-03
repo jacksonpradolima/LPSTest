@@ -1,0 +1,26 @@
+Parameters Information
+----------------------------------------------------
+Instance: instances/weatherstation
+Algorithm: NSGAII
+Population: 50
+maxEvaluations: 5000
+crossoverProbability: 0.9
+mutationsProbability; 0.005
+crossoverOperator: UniformCrossoverBinary
+mutationOperator: SwapMutationBinary
+selectionOperator: BinaryTournament2
+executions: 1
+----------------------------------------------------
+Nome do arquivo: instances/weatherstation/PROD_MUTANTS_BinaryMatrix.txt
+Número de  casos de teste (produtos): 504
+Número de mutantes: 357
+Nome do arquivo: instances/weatherstation/PROD_PAIRS_BinaryMatrix.txt
+Número de casos de teste (produtos): 504
+Número de pares: 195
+Nome do arquivo: instances/weatherstation/PROD_
+Número de casos de teste (produtos): 504
+Número de características: 22
+Run: 0
+Total time of execution: 2496
+Objectives values have been writen to file experiment/weatherstation/NSGAII/50_100_0.9_0.005_UniformCrossoverBinary_SwapMutationBinary/FUN_0
+Variables values have been writen to file experiment/weatherstation/NSGAII/50_100_0.9_0.005_UniformCrossoverBinary_SwapMutationBinary/VAR_0

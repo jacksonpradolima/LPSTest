@@ -13,9 +13,9 @@ package experiment;
 public class Settings {
 
     public static final String[] INSTANCES = {
-        "instances/cas",
-        "instances/eshop",
-        "instances/james",
+        //"instances/cas",
+        //"instances/eshop",
+        //"instances/james",
         "instances/weatherstation"
     };
 
@@ -25,35 +25,35 @@ public class Settings {
     };
 
     public static final int[] POPULATION_SIZE = {
-        //50,
+        50
         //100,
-        200
+        //200
     };
 
     public static final int[] GENERATIONS = {
-        //100,
+        100
         //300,
-        600
+        //600
     };
 
     public static final double[] CROSSOVER_PROBABILITY = {
-        0.8,
+        //0.8,
         0.9
     };
 
     public static final double[] MUTATION_PROBABILITY = {
         0.005,
-        0.01
+        //0.01
         //0.1
     };
 
     public static final String[] CROSSOVER_OPERATORS = {
-        "SinglePointCrossover",
+        //"SinglePointCrossover",
         "UniformCrossoverBinary"
     };
 
     public static final String[] MUTATION_OPERATORS = {
-        "BitFlipMutation",
+        //"BitFlipMutation",
         "SwapMutationBinary"
     };
 
