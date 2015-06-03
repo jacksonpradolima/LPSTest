@@ -33,10 +33,10 @@ public class MultiObjectiveResults {
         int numberOfObjectives = 5;
         int numberOfExecutions = 30;
 
-        calculatePFTrue(instances, algorithms, numberOfExecutions);
-        //calculateHypervolumeResults(instances, algorithms, numberOfObjectives, numberOfExecutions);
-        //calculateKruskalWallisForTuning(instances, algorithms, numberOfExecutions);
+        calculateHypervolumeResults(instances, algorithms, numberOfObjectives, numberOfExecutions);
+        calculateKruskalWallisForTuning(instances, algorithms, numberOfExecutions);
         //calculateKruskalWallisForAlgorithms(instances, algorithms, numberOfExecutions);
+        //calculatePFTrue(instances, algorithms, numberOfExecutions);
     }
 
     private static void calculateKruskalWallisForAlgorithms(List<String> instances, List<String> algorithms, int numberOfExecutions) throws IOException, InterruptedException {

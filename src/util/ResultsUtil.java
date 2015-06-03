@@ -216,7 +216,7 @@ public class ResultsUtil {
         List<Path> paths = new ArrayList<>();
         for (String instance : instances) {
             for (String algorithm : algorithms) {
-                File file = new File("experiment/" + instance + "/" + algorithm + "/F2");
+                File file = new File("experiment/" + instance + "/" + algorithm);
                 if (file.isDirectory()) {
                     File[] subDirectory = file.listFiles();
                     if (subDirectory != null) {

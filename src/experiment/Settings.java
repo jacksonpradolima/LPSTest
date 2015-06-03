@@ -20,29 +20,29 @@ public class Settings {
     };
 
     public static final MetaheuristicType[] ALGORITHMS = {
-        MetaheuristicType.NSGAII
-        //MetaheuristicType.NSGAIII
+        //MetaheuristicType.NSGAII,
+        MetaheuristicType.NSGAIII
     };
 
     public static final int[] POPULATION_SIZE = {
-        50
+        50//,
         //100,
         //200
     };
 
     public static final int[] GENERATIONS = {
-        100
+        100//,
         //300,
         //600
     };
 
     public static final double[] CROSSOVER_PROBABILITY = {
-        //0.8,
-        0.9
+        0.8//,
+        //0.9
     };
 
     public static final double[] MUTATION_PROBABILITY = {
-        0.005,
+        0.005
         //0.01
         //0.1
     };

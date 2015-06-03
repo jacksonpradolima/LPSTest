@@ -6,7 +6,7 @@ Number of Running Threads = 1
 Number of Remaining Threads = 0
 Number of Successfully Finished Threads = 0
 
-Active Threads = [Thread[50_100_0.9_0.005_UniformCrossoverBinary_SwapMutationBinary,5,main]]
+Active Threads = [Thread[50_100_0.8_0.005_UniformCrossoverBinary_SwapMutationBinary,5,main]]
 
 Queued Threads = []
 
