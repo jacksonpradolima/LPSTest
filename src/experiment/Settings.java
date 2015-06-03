@@ -13,10 +13,10 @@ package experiment;
 public class Settings {
 
     public static final String[] INSTANCES = {
-        "instances/cas.txt",
-        "instances/eshop.txt",
-        "instances/james.txt",
-        "instances/weatherstation.txt"
+        "instances/cas",
+        "instances/eshop",
+        "instances/james",
+        "instances/weatherstation"
     };
 
     public static final MetaheuristicType[] ALGORITHMS = {

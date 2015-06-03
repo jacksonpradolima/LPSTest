@@ -5,8 +5,6 @@
  */
 package problem;
 
-import java.text.DecimalFormat;
-import java.util.List;
 import jmetal.core.Problem;
 import jmetal.core.Solution;
 import jmetal.encodings.solutionType.BinarySolutionType;
@@ -27,14 +25,18 @@ import util.InstanceReader;
  */
 public class LPSTestProblem extends Problem {
 
-//    private final List<TestCase> testCases;
-//    private final List<Mutant> mutants;
-    private int[][] coverage;
+    private int[][] coverageMutantes;
 
     private int numberOfTestSuite;
 
     private int numberOfMutants;
 
+    private int numberOfTestSuitePairs;
+
+    private int numberOfPairs;
+
+    private int[][] coveragePairwise;
+    
     public void defaultJMetalSettings() {
         // JMetal's Settings
         numberOfObjectives_ = 2;
@@ -47,7 +49,7 @@ public class LPSTestProblem extends Problem {
     }
 
     public LPSTestProblem(int numberOfTestSuite, int numberOfMutants, int[][] coverage) {
-        this.coverage = coverage;
+        this.coverageMutantes = coverage;
         this.numberOfMutants = numberOfMutants;
         this.numberOfTestSuite = numberOfTestSuite;
 
@@ -55,15 +57,8 @@ public class LPSTestProblem extends Problem {
     }
 
     public LPSTestProblem(String filename) {
-        // Read Instance's file
-        InstanceReader reader = new InstanceReader(filename);
-
-        reader.open();
-        this.numberOfTestSuite = reader.readInt();
-        this.numberOfMutants = reader.readInt();
-        this.coverage = reader.readIntMatrix(numberOfMutants, numberOfTestSuite, " ");
-        reader.close();
-
+        readMutants(filename);
+        //readPairwise(filename);
         defaultJMetalSettings();
     }
 
@@ -72,22 +67,60 @@ public class LPSTestProblem extends Problem {
         //variable = vector positions
         Binary s = (Binary) solution.getDecisionVariables()[0];
 
-        double mutationScore = getMutantionScore(s);
-        double numberOfSelectedTestSuite = getNumberOfSelectedTestSuite(s);
-
-        solution.setObjective(0, mutationScore * -1);
-        solution.setObjective(1, numberOfSelectedTestSuite);
+        // Maximizar o score de mutação
+        solution.setObjective(0, getMutantionScore(s) * -1);
+        
+        // Minimizar o número de casos de teste 
+        solution.setObjective(1, getNumberOfSelectedTestSuite(s));
     }
 
     @Override
     public void evaluateConstraints(Solution solution) throws JMException {
-        Binary binarySolution = (Binary) solution.getDecisionVariables()[0];
-        int numberOfSelectedTestSuite = getNumberOfSelectedTestSuite(binarySolution);
+        Binary s = (Binary) solution.getDecisionVariables()[0];
+        int numberOfSelectedTestSuite = getNumberOfSelectedTestSuite(s);
+        
+        // Ao menos um caso de teste deve estar selecionado
         if (numberOfSelectedTestSuite == 0) {
-            int random = PseudoRandom.randInt(0, binarySolution.getNumberOfBits() - 1);
-            binarySolution.setIth(random, true);
+            int random = PseudoRandom.randInt(0, s.getNumberOfBits() - 1);
+            s.setIth(random, true);
             evaluate(solution);
         }
+    }
+
+    private void readMutants(String filename) {
+        // filename = instances/cas
+        String path = String.format("%s/%s", filename, "PROD_MUTANTS_BinaryMatrix.txt");
+
+        System.out.println("Nome do arquivo: " + path);
+        // Read Instance's file
+        InstanceReader reader = new InstanceReader(path);
+
+        reader.open();
+        this.numberOfTestSuite = reader.readInt();
+        this.numberOfMutants = reader.readInt();
+        this.coverageMutantes = reader.readIntMatrix(numberOfMutants, numberOfTestSuite, " ");
+        reader.close();
+
+        System.out.println("Número de  casos de teste (produtos): " + this.numberOfTestSuite);
+        System.out.println("Número de mutantes: " + this.numberOfMutants);
+    }
+
+    private void readPairwise(String filename) {
+        // filename = instances/cas
+        String path = String.format("%s/%s", filename, "PROD_PAIRS_BinaryMatrix.txt");
+
+        System.out.println("Nome do arquivo: " + path);
+        // Read Instance's file
+        InstanceReader reader = new InstanceReader(path);
+
+        reader.open();
+        this.numberOfTestSuitePairs = reader.readInt();
+        this.numberOfPairs = reader.readInt();
+        this.coveragePairwise = reader.readIntMatrix(numberOfPairs, numberOfTestSuitePairs, " ");
+        reader.close();
+
+        System.out.println("Número de casos de teste (produtos): " + this.numberOfTestSuitePairs);
+        System.out.println("Número de pares: " + this.numberOfPairs);
     }
 
     public double getMutantionScore(Binary s) {
@@ -124,7 +157,7 @@ public class LPSTestProblem extends Problem {
             if (solution.getIth(i)) {
                 // Test Suite was selected by metaheurist
                 for (int j = 0; j < numberOfMutants; j++) {
-                    if (coverage[j][i] == 1 && visited[j] == 0) {
+                    if (coverageMutantes[j][i] == 1 && visited[j] == 0) {
                         // Test Suit has not yet been visited
                         visited[j] = 1;
                         total++;
@@ -153,6 +186,6 @@ public class LPSTestProblem extends Problem {
     }
 
     public boolean isKilled(int testSuite, int mutant) {
-        return coverage[mutant][testSuite] == 1;
+        return coverageMutantes[mutant][testSuite] == 1;
     }
 }

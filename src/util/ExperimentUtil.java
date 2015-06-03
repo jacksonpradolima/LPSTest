@@ -123,8 +123,7 @@ public class ExperimentUtil {
     }
 
     public static String getInstanceName(String path) {
-        int end = path.indexOf(".txt");
-        return path.substring(10, end);
+        return path.split("/")[1];
     }
 
     //for jmetal 4.5
